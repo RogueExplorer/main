@@ -53,5 +53,5 @@ print("OOOoEEEEEEEEEEEEooXXooOOOOooXXooPPoOOOOOoLLLLLL       R R EE R R")
 print("OOOooooooooooooooooooOOOOOOooooooooOOOOOooooooo                 ")
 #Fin du bloc de texte.
 
-windll.kernel32.SetConsoleWindowInfo(sortie, True, byref(rectangle)) #Assigne les dimensions de la console.
-time.sleep(30) #Attends 30 secondes.
+while(0!=1)
+  windll.kernel32.SetConsoleWindowInfo(sortie, True, byref(rectangle)) #Assigne les dimensions de la console.
