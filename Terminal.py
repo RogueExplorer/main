@@ -5,8 +5,8 @@ import time
 import colorama
 from ctypes import windll, wintypes, byref
 
-STDIN = -10 #Assigne le flux d'entree a  STDIN
-STDOUT = -11 #Assigne le flus de sortie a  STDOUT
+STDIN = -10 #Assigne le flux d'entree a STDIN
+STDOUT = -11 #Assigne le flus de sortie a STDOUT
 
 
 colorama.init() #Initialise colorama que permet de manipuler les codes d'echape AINSI
