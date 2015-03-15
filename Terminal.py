@@ -1,4 +1,3 @@
-# -*- coding: cp1252 -*-
 import os
 import sys
 import time
