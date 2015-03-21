@@ -14,3 +14,4 @@ while True:
 
 #Those are examples. It is not the final module.
 #It seems we'll need the ASCII table or something like it for decoding DEC input as keypresses.
+#Oh and, yea, now you're unable to kill me.
