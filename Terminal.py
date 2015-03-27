@@ -56,5 +56,11 @@ def get_char_at(self,x,y):
   except (e):
     print(e)
 
+def set_char_at(self,char,x,y):
+  try:
+    "insert_console_string_here"[x+64*(y-1)] = char
+  except (e):
+    print(e)
+
 while(0!=1):
   windll.kernel32.SetConsoleWindowInfo(sortie, True, byref(rectangle)) #Assigne les dimensions de la console.
