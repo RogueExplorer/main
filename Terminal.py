@@ -50,5 +50,11 @@ print("OooooooooooooooooooOOOOOOooooooooOOOOOoooooooOOOOOO            O")
 print("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
 #Fin du bloc de texte.
 
+def get_char_at(self,x,y):
+  try:
+    str = "insert_console_string_here"[x+64*(y-1)]
+  except (e):
+    print(e)
+
 while(0!=1):
   windll.kernel32.SetConsoleWindowInfo(sortie, True, byref(rectangle)) #Assigne les dimensions de la console.
