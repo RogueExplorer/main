@@ -7,6 +7,8 @@ class Personnage(RogueAPI) :
     def __init__(self) :
         self.x = 0
         self.y = 0
+        self.quench = 100
+        self.saturation = 100
 
     def move_right(self) :
         self.x = (self.x + 1)
@@ -40,3 +42,19 @@ class Personnage(RogueAPI) :
             self.y = y
         except (e) :
             print(e)
+    
+    def get_quench(self):
+        return self.quench
+    def add_quench(self,quench):
+        try:
+            self.quench = self.quench + quench
+        except (e):
+            print(e)
+    def get_saturation(self):
+        return self.saturation
+    def add_saturation(self,saturation):
+        try:
+            self.saturation = self.saturation + saturation
+        except (e) :
+            print(e)
+    
