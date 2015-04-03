@@ -12,7 +12,7 @@ entree = windll.kernel32.GetStdHandle(STDIN) #Assigne le flux d'entree a entree.
 sortie = windll.kernel32.GetStdHandle(STDOUT) #Assigne le flux de sortie a sortie.
 rectangle = wintypes.SMALL_RECT(0, 0, 63, 31) #Cree un objet wintypes _SALL_RECT demande par SetConsoleWindowInfo de 64 et 32 lignes (Gauche, Haut, Droite, Bas).
 
-windll.kernel32.SetConsoleTitleA("Rogue Expoorer") #Assigne le titre "Rogue Exporer" a la console.
+windll.kernel32.SetConsoleTitleA("Rogue Exporer") #Assigne le titre "Rogue Exporer" a la console.
 windll.kernel32.SetConsoleTextAttribute(sortie, 0x0004)
 
 #"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO""OOOOOOO        OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO""OOOOOO          OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO""OOOOOO    OOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO""OOOOOO    OOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO""OOOOOO    OOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO""OOOOOO    OOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO""OOOOOO    OOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO""OOOOOO    OOOO    OOOOOOO    OOOOO    OOO  OOOO  O        OOOOOO""OOOOOO    OO     OOOOOOO  OO  OOO  OO  OO  OOOO  O  OOOOOOOOOOOO""OOOOOO        O    OOOO  OOOO  O  OOOO  O  OOOO  O  OOOOOOOOOOOO""OOOOOO    OOOOOO    OOO  OOOO  O  OOOOOOO  OOOO  O      OOOOOOOO""OOOOOO    OOOOOO    OOO  OOOO  O  OO    O  OOOO  O  OOOOOOOOOOOO""OOOOOO    OOOOOO    OOOO  OO  OOO  OO  OOO  OO  OO  OOOOOOOOOOOO""OOOOOO    OOOOOOO    OOOO    OOOOO    OOOOO    OOO        OOOOOO""OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
@@ -48,15 +48,16 @@ print("PRESS DOWN TO GODDAMN SCREEN.")
 print("PRESS H FOR HELP BIATCH.")
 #Fin du bloc de texte.
 
-#SOMEPROBLEMSHERE
-def get_char_at(x,y):
+def get_char_at(that_string,x,y):
+  """that_string,x,y"""
   try:
-    letter = firsttextstring[(x+64*(y-1))]
-    return letter
+    letter = that_string[(x+64*(y-1))]
+    print(letter)
   except (e):
     print(e)
-#ANDHERE
-def set_char_at(char,x,y):
+#SOMEPROBLEMSHERE
+def set_char_at(that_string,char,x,y):
+  """that_string,char,x,y"""
   try:
     firsttextstring[(x+64*(y-1))] = char
   except (e):
@@ -73,9 +74,9 @@ def keys():
           ROGUE()
           EXPLORER()
       elif key == 77: #Right arrow
-          set_char_at("a",21,5)
+          set_char_at(firsttextstring,"a",0,0)
       elif key == 75: #Left arrow
-          get_char_at(21,5)
+          get_char_at(firsttextstring,0,0)
       else:
         print(key)
   elif key == 104:
@@ -85,9 +86,14 @@ def keys():
     print("PRESS DOWN TO GODDAMN SCREEN.")
     print("PRESS H FOR HELP BIATCH.")
   elif key != 255:
-    print(key)
-
+    pass
 
 while(0!=1):
   windll.kernel32.SetConsoleWindowInfo(sortie, True, byref(rectangle)) #Assigne les dimensions de la console.
+  ROGUE()
+  EXPLORER()
   keys()
+  clear = lambda: os.system('cls')
+  clear()
+  
+  
