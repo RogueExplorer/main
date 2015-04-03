@@ -1,0 +1,55 @@
+
+carte = open ("test.txt","r")
+
+#64*32
+
+DonneePrimaire = carte.readlines()
+#DonneePrimaire est la biblothèque de ligne du fichier "source"
+
+
+
+def LectureCaractere(x,y):
+    """retourne le caractère de coordonées (x,y)"""
+    a = DonneePrimaire[y]
+    b = a[x]
+    return b
+
+
+def LenLigne(y):
+    """renvoi la longueur de la chaine y. Numéroté a partir de 0"""
+    a = DonneePrimaire[y]
+    b = len(a)
+    return b
+
+x=0
+y=0
+carac = LectureCaractere(x,y)
+
+#jusque là ça passe
+ChaineFinalle = ""
+#ligne 30
+while y < len(DonneePrimaire):
+    carac = LectureCaractere(x,y)
+    
+    while x <= LenLigne(y)-2:
+        
+        carac = LectureCaractere(x,y)
+        
+        if carac == "0":            
+            ChaineFinalle += "0"#"\033[31m."
+            ChaineFinalle += ""
+        else:
+            ChaineFinalle += " "
+        
+        x+=1
+    
+    y+=1
+    x=0
+    print(ChaineFinalle)
+    ChaineFinalle = ""
+    
+
+
+
+        
+    
