@@ -59,7 +59,10 @@ def get_char_at(that_string,x,y):
 def set_char_at(that_string,char,x,y):
   """that_string,char,x,y"""
   try:
-    firsttextstring[(x+64*(y-1))] = char
+    coordinates = (x+64*(y-1))
+    that_string = list(that_string)
+    that_string[coordinates] = char
+    "".join(that_string)
   except (e):
     print(e)
 
