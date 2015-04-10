@@ -1,4 +1,3 @@
-@@ -1,41 +0,0 @@
 class RogueAPI(object) :
     def __init__(self) :
         pass
