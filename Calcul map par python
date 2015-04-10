@@ -4,7 +4,7 @@ carte = open ("test.txt","r")  #ouvre le fichier nommé en lecture
 
 DonneePrimaire = carte.readlines()
 #DonneePrimaire est la biblothèque de ligne du fichier "source"
-
+NbDeCarac = 1 #le nombre de caractère de Donnée qui définit 1 carac dans ChaineFinalle
 
 def LectureCaractere(x,y):
     """retourne le caractère de coordonées (x,y)"""  #ligne10
@@ -33,20 +33,44 @@ ChaineFinalle = "" #Cette chaine stoque la ligne une fois modifiée
 
 
 while y < len(DonneePrimaire):#fait défiler les lignes
+    
+    if y!=0:
+        ChaineFinalle += "\n"#évite le saut de ligne a la ligne 1
+    
     carac = LectureCaractere(x,y)#on lit le premier carac de la ligne
     
     while x <= LenLigne(y)-2:  #la ligne fini par \n(d'où le -2)
-        carac = LectureCaractere(x,y)
-               
-        if carac == "0":            
-            ChaineFinalle += "░"#"\033[31m." pour mettre une couleur 
-            ChaineFinalle += ""
-        else:
-            ChaineFinalle += "▓"
+        i=0
+        caracs = ""
+        while i<NbDeCarac:
+            carac = LectureCaractere(x,y)#lit le nombre de caractères voulu
+            caracs += carac
+            i+=1
         
+        if caracs == "0":            
+            ChaineFinalle += "░"#"\033[31m." pour mettre une couleur 
+        if caracs == "1":
+            ChaineFinalle += "▓"
+        if caracs == "2":
+            ChaineFinalle += "║"
+        if caracs == "3":
+            ChaineFinalle += "═"
+        if caracs == "4":
+            ChaineFinalle += "╔"
+        if caracs == "5":
+            ChaineFinalle += "╗"
+        if caracs == "6":
+            ChaineFinalle += "╚"
+        if caracs == "7":
+            ChaineFinalle += "╝"
+        #╚ ╔ ╗ ╝
         x+=1
     
     y+=1#ligne suivante
     x=0 #1°caractère de la ligne
-    print(ChaineFinalle)#utilise la ligne puis la vide
-    ChaineFinalle = ""
+    
+
+
+ChaineFinalle+="▓"
+print(ChaineFinalle)
+
