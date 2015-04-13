@@ -47,22 +47,32 @@ while y < len(DonneePrimaire):#fait défiler les lignes
             caracs += carac
             i+=1
         
-        if caracs == "0":            
+        if caracs == ".":            
             ChaineFinalle += "░"#"\033[31m." pour mettre une couleur 
-        if caracs == "1":
+        if caracs == "0":
             ChaineFinalle += "▓"
-        if caracs == "2":
+        if caracs == "a":
             ChaineFinalle += "║"
-        if caracs == "3":
+        if caracs == "z":
             ChaineFinalle += "═"
-        if caracs == "4":
-            ChaineFinalle += "╔"
-        if caracs == "5":
-            ChaineFinalle += "╗"
-        if caracs == "6":
-            ChaineFinalle += "╚"
         if caracs == "7":
+            ChaineFinalle += "╔"
+        if caracs == "9":
+            ChaineFinalle += "╗"
+        if caracs == "1":
+            ChaineFinalle += "╚"
+        if caracs == "3":
             ChaineFinalle += "╝"
+        if caracs == "4":
+            ChaineFinalle += "╠"
+        if caracs == "8":
+            ChaineFinalle += "╦"
+        if caracs == "6":
+            ChaineFinalle += "╣"
+        if caracs == "2":
+            ChaineFinalle += "╩"
+        if caracs == "5":
+            ChaineFinalle += "╬"
         #╚ ╔ ╗ ╝
         x+=1
     
@@ -71,6 +81,5 @@ while y < len(DonneePrimaire):#fait défiler les lignes
     
 
 
-ChaineFinalle+="▓"
 print(ChaineFinalle)
 
