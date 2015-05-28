@@ -1,4 +1,13 @@
 from msvcrt import getch
+memory = "0"
+X = 0
+Y = 0
+
+dico_touche = {}
+dico_touche[80] = move_down
+dico_touche[72] = move_up
+dico_touche[77] = move_right
+dico_touche[75] = move_left
 
 def get_char_at(that_string,x,y):
   """that_string,x,y"""
@@ -61,15 +70,7 @@ def keys(string):
     dico_touche.get(keymask, lambda *args: string)(string)
   
 def main():
-  memory = "0"
-  X = 0
-  Y = 0
-
-  dico_touche = {}
-  dico_touche[80] = move_down
-  dico_touche[72] = move_up
-  dico_touche[77] = move_right
-  dico_touche[75] = move_left
+  #Nothing to do. Just a wrapper.
 
 if __name__ == '__main__':
   main()
