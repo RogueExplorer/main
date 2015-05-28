@@ -11,7 +11,7 @@ def LectureCaractere(x,y):
     """retourne le caractère de coordonées (x,y)"""  #ligne10
     if y == 32:
         print("ligne non répértoriée")
-    if x == 64:
+    if x == 253:
         print("caractère non répértorié")
     a = DonneePrimaire[y]
     b = a[x]
@@ -30,32 +30,28 @@ def LenLigne(y):  #ligne 22
 def Interpretation(caracs):
     """retourne l'interprette des caractères choisis"""
     a = ""
-    if caracs == "000.":            
-        a += "░"#"\033[31m." pour mettre une couleur 
-    if caracs == "0000":
-        a += "▓"
-    if caracs == "000a":
-        a += "║"
-    if caracs == "000z":
-        a += "═"
-    if caracs == "0007":
-        a += "╔"
-    if caracs == "0009":
-        a += "╗"
+    if caracs == "0000":            
+        a += "esc[32;."#"\033[31m." pour mettre une couleur 
     if caracs == "0001":
-        a += "╚"
-    if caracs == "0003":
-        a += "╝"
-    if caracs == "0004":
-        a += "╠"
-    if caracs == "0008":
-        a += "╦"
-    if caracs == "0006":
-        a += "╣"
+        a += "esc[34;~"
     if caracs == "0002":
-        a += "╩"
+        a += "esc[37;o"
+    if caracs == "0003":
+        a += "esc[37;═"
+    if caracs == "0004":
+        a += "esc[37;║"
     if caracs == "0005":
-        a += "╬"
+        a += "esc[37;╗"
+    if caracs == "0006":
+        a += "esc[37;╔"
+    if caracs == "0008":
+        a += "esc[37;╚"
+    if caracs == "0007":
+        a += "esc[37;╝"
+    if caracs == "0009":
+        a += "esc[32;h"
+    if caracs == "0010":
+        a += "esc[32;#"
     return a
 
 #initialisation
