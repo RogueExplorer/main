@@ -84,6 +84,6 @@ def main():
         
     
     #ChaineFinalle += LectureCaractere(x,y-1)
-    print(ChaineFinalle)
+    return ChaineFinalle
 if __name__ == '__main__':
     main()
