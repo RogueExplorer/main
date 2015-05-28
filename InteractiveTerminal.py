@@ -5,8 +5,9 @@ import Wrapper
 from ctypes import windll, wintypes, byref, util
 from msvcrt import getch
 import CalculMap as Cm
+import EntreesClavier as Ec
 
-ChaineFinale = Cm.main()
+ChaineFinale = Cm.main() #Récupération de la map
 
 STDIN = -10 #Assigne le flux d'entree a STDIN
 STDOUT = -11 #Assigne le flus de sortie a STDOUT
@@ -43,63 +44,9 @@ def EXPLORER():
       print(secondtextstring[0+64*(j-1):64*j])
       j=j+1
 
-#Bloc de texte.
-windll.kernel32.SetConsoleTextAttribute(sortie, 0x0003)
-print("FOCK UR SHIT WENKAH >:c")
-print("PRESS UP TO BE LESS SCARED.")
-print("PRESS DOWN TO GODDAMN SCREEN.")
-print("PRESS H FOR HELP BIATCH.")
-#Fin du bloc de texte.
-
-def get_char_at(that_string,x,y):
-  """that_string,x,y"""
-  try:
-    letter = that_string[(x+64*(y-1))]
-    print(letter)
-  except (e):
-    print(e)
-#SOMEPROBLEMSHERE
-def set_char_at(that_string,char,x,y):
-  """that_string,char,x,y"""
-  try:
-    coordinates = (x+64*(y-1))
-    that_string = list(that_string)
-    that_string[coordinates] = char
-    that_string = "".join(that_string)
-    return that_string
-  except (e):
-    print(e)
-
-def keys():
-  key = ord(getch())
-  if key == 224: #Special keys (arrows, f keys, ins, del, etc.)
-      key = ord(getch())
-      if key == 80: #Down arrow
-          clear = lambda: os.system('cls')
-          clear()
-      elif key == 72: #Up arrow
-          ROGUE()
-          EXPLORER()
-      elif key == 77: #Right arrow
-          set_char_at(firsttextstring,"a",0,0)
-      elif key == 75: #Left arrow
-          get_char_at(firsttextstring,0,0)
-      else:
-        print(key)
-  elif key == 104:
-    windll.kernel32.SetConsoleTextAttribute(sortie, 0x0003)
-    print("FOCK UR SHIT WENKAH >:c")
-    print("PRESS UP TO BE LESS SCARED.")
-    print("PRESS DOWN TO GODDAMN SCREEN.")
-    print("PRESS H FOR HELP BIATCH.")
-  elif key != 255:
-    pass
-
 while(0!=1):
   windll.kernel32.SetConsoleWindowInfo(sortie, True, byref(rectangle)) #Assigne les dimensions de la console.
-  ROGUE()
-  EXPLORER()
-  keys()
+  Ec.keys(firsttextstring) #Ici firsttextstring doit être remplacé par la map actuelle.
   clear = lambda: os.system('cls')
   clear()
   
