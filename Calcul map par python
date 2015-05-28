@@ -4,7 +4,8 @@ carte = open ("test.txt","r")  #ouvre le fichier nommé en lecture
 
 DonneePrimaire = carte.readlines()
 #DonneePrimaire est la biblothèque de ligne du fichier "source"
-NbDeCarac = 1 #le nombre de caractère de Donnée qui définit 1 carac dans ChaineFinalle
+NbDeCarac = 4 #le nombre de caractère de Donnée qui définit 1 carac dans ChaineFinalle
+
 
 def LectureCaractere(x,y):
     """retourne le caractère de coordonées (x,y)"""  #ligne10
@@ -17,17 +18,49 @@ def LectureCaractere(x,y):
     return b
 
 
-def LenLigne(y):  #ligne 20
+
+def LenLigne(y):  #ligne 22
     """renvoi la longueur de la chaine y. Numéroté a partir de 0"""
     a = DonneePrimaire[y]
     b = len(a)
     return b
 
 
+
+def Interpretation(caracs):
+    """retourne l'interprette des caractères choisis"""
+    a = ""
+    if caracs == "000.":            
+        a += "░"#"\033[31m." pour mettre une couleur 
+    if caracs == "0000":
+        a += "▓"
+    if caracs == "000a":
+        a += "║"
+    if caracs == "000z":
+        a += "═"
+    if caracs == "0007":
+        a += "╔"
+    if caracs == "0009":
+        a += "╗"
+    if caracs == "0001":
+        a += "╚"
+    if caracs == "0003":
+        a += "╝"
+    if caracs == "0004":
+        a += "╠"
+    if caracs == "0008":
+        a += "╦"
+    if caracs == "0006":
+        a += "╣"
+    if caracs == "0002":
+        a += "╩"
+    if caracs == "0005":
+        a += "╬"
+    return a
+
 #initialisation
 x=0 #x est la coordonée orisontalle
 y=0 #y est la coordonée verticalle (l'origine est en haut a gauche)
-carac = LectureCaractere(x,y) #prise du premier caractère
 
 ChaineFinalle = "" #Cette chaine stoque la ligne une fois modifiée
 
@@ -46,40 +79,15 @@ while y < len(DonneePrimaire):#fait défiler les lignes
             carac = LectureCaractere(x,y)#lit le nombre de caractères voulu
             caracs += carac
             i+=1
+            x+=1 #!!!!
         
-        if caracs == ".":            
-            ChaineFinalle += "░"#"\033[31m." pour mettre une couleur 
-        if caracs == "0":
-            ChaineFinalle += "▓"
-        if caracs == "a":
-            ChaineFinalle += "║"
-        if caracs == "z":
-            ChaineFinalle += "═"
-        if caracs == "7":
-            ChaineFinalle += "╔"
-        if caracs == "9":
-            ChaineFinalle += "╗"
-        if caracs == "1":
-            ChaineFinalle += "╚"
-        if caracs == "3":
-            ChaineFinalle += "╝"
-        if caracs == "4":
-            ChaineFinalle += "╠"
-        if caracs == "8":
-            ChaineFinalle += "╦"
-        if caracs == "6":
-            ChaineFinalle += "╣"
-        if caracs == "2":
-            ChaineFinalle += "╩"
-        if caracs == "5":
-            ChaineFinalle += "╬"
-        #╚ ╔ ╗ ╝
-        x+=1
+
+        ChaineFinalle += Interpretation(caracs)
     
     y+=1#ligne suivante
     x=0 #1°caractère de la ligne
     
 
-
+#ChaineFinalle += LectureCaractere(x,y-1)
 print(ChaineFinalle)
 
