@@ -1,12 +1,3 @@
-carte = open ('carte.txt')  #ouvre le fichier nommé en lecture
-#ENCODAGE AINSI OBLIGATOIRE
-#6432 est la taille de la map normalle
-
-DonneePrimaire = carte.readlines()
-#DonneePrimaire est la biblothèque de ligne du fichier source
-NbDeCarac = 4 #le nombre de caractère de Donnée qui définit 1 carac dans ChaineFinalle
-
-
 def LectureCaractere(x,y):
     #retourne le caractère de coordonées (x,y)  #ligne10
     if y == 32:
@@ -54,35 +45,45 @@ def Interpretation(caracs):
         a += '\033esc[32m#'
     return a
 
-#initialisation
-x=0 #x est la coordonée orisontalle
-y=0 #y est la coordonée verticalle (l'origine est en haut a gauche)
-
-ChaineFinalle =  ''#Cette chaine stoque la ligne une fois modifiée
-
-
-while y<len(DonneePrimaire):#fait défiler les lignes
+def main():
+    carte = open ('carte.txt')  #ouvre le fichier nommé en lecture
+    #ENCODAGE AINSI OBLIGATOIRE
+    #6432 est la taille de la map normalle
     
-    if y!=0:
-        ChaineFinalle += n#évite le saut de ligne a la ligne 1
+    DonneePrimaire = carte.readlines()
+    #DonneePrimaire est la biblothèque de ligne du fichier source
+    NbDeCarac = 4 #le nombre de caractère de Donnée qui définit 1 carac dans ChaineFinalle
+    #initialisation
+    x=0 #x est la coordonée orisontalle
+    y=0 #y est la coordonée verticalle (l'origine est en haut a gauche)
     
-    carac = LectureCaractere(x,y)#on lit le premier carac de la ligne
+    ChaineFinalle =  ''#Cette chaine stoque la ligne une fois modifiée
     
-    while x == len(Ligne(y)-2):  #la ligne fini par n(d'où le -2)
-        i=0
-        caracs = ''
-        while iNbDeCarac:
-            carac = LectureCaractere(x,y)#lit le nombre de caractères voulu
-            caracs += carac
-            i+=1
-            x+=1 #!!!!
+    
+    while y<len(DonneePrimaire):#fait défiler les lignes
         
-
-        ChaineFinalle += Interpretation(caracs)
+        if y!=0:
+            ChaineFinalle += n#évite le saut de ligne a la ligne 1
+        
+        carac = LectureCaractere(x,y)#on lit le premier carac de la ligne
+        
+        while x == len(Ligne(y)-2):  #la ligne fini par n(d'où le -2)
+            i=0
+            caracs = ''
+            while iNbDeCarac:
+                carac = LectureCaractere(x,y)#lit le nombre de caractères voulu
+                caracs += carac
+                i+=1
+                x+=1 #!!!!
+            
     
-    y+=1#ligne suivante
-    x=0 #1°caractère de la ligne
+            ChaineFinalle += Interpretation(caracs)
+        
+        y+=1#ligne suivante
+        x=0 #1°caractère de la ligne
+        
     
-
-#ChaineFinalle += LectureCaractere(x,y-1)
-print(ChaineFinalle)
+    #ChaineFinalle += LectureCaractere(x,y-1)
+    print(ChaineFinalle)
+if __name__ == '__main__':
+    main()
