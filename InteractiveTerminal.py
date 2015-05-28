@@ -4,6 +4,9 @@ import time
 import Wrapper
 from ctypes import windll, wintypes, byref, util
 from msvcrt import getch
+import CalculMap as Cm
+
+ChaineFinale = Cm.main()
 
 STDIN = -10 #Assigne le flux d'entree a STDIN
 STDOUT = -11 #Assigne le flus de sortie a STDOUT
