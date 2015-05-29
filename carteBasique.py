@@ -1,7 +1,6 @@
 import random
 import sys
 
-#Declaration de variables
 x=0
 y=0
 xLieu=0
@@ -17,7 +16,7 @@ carte=[]
 
 cheminCarte = 'carte.txt'
 fichierCarte = open(cheminCarte, 'r+')
-fichierCarte.truncate() #Vide carte.txt
+fichierCarte.truncate()
 
 #Creation d'un tableau 2D
 for carteX in range(64): 
@@ -26,7 +25,6 @@ for carteX in range(64):
         ligne.append((x*64)+y)
     carte.append(ligne) 
 
-#Genere une carte dont toutes les cases sont l'id 0000(de l'herbe)
 while(x<63 or y<31):
     carte[x][y]='0000'
     x+=1
@@ -38,7 +36,7 @@ while(x<63 or y<31):
 x=0
 y=0
 
-#Assigne les ids 0009(arbre) et 0010(buisson) aléatoirement à des cases
+#Assigne les ids 0009(arbre) et 0010(buisson) aleatoirement a des cases
 while(x<63 or y<31):
     randNb = random.randint(1,8)
     if(randNb==1):
@@ -55,7 +53,7 @@ while(x<63 or y<31):
 x=0
 y=0
 
-#Assigne les valeurs du tableau 2D au fichier carte.txt
+
 while(x<63 or y<31):
     fichierCarte.write(carte[x][y])
     x+=1
@@ -64,5 +62,5 @@ while(x<63 or y<31):
         y+=1
         fichierCarte.write('\n')
 
-#Ferme(sauvegarde) le fichier
+
 fichierCarte.close()
