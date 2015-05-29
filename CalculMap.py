@@ -1,3 +1,7 @@
+carte = open ('carte.txt')
+DonneePrimaire = carte.readlines()
+NbDeCarac = 4
+
 def LectureCaractere(x,y):
     #retourne le caractère de coordonées (x,y)  #ligne10
     if y == 32:
@@ -6,7 +10,7 @@ def LectureCaractere(x,y):
         print("caractère non répértorié")
     a = DonneePrimaire[y]
     b = a[x]
-    return b
+    return str(b)
 
 
 
@@ -14,7 +18,7 @@ def LenLigne(y):  #ligne 22
     #renvoi la longueur de la chaine y. Numéroté a partir de 0
     a = DonneePrimaire[y]
     b = len(a)
-    return b
+    return str(b)
 
 
 
@@ -63,11 +67,11 @@ def main():
     while y<len(DonneePrimaire):#fait défiler les lignes
         
         if y!=0:
-            ChaineFinalle += n#évite le saut de ligne a la ligne 1
+            ChaineFinalle += '\n'#évite le saut de ligne a la ligne 1
         
         carac = LectureCaractere(x,y)#on lit le premier carac de la ligne
         
-        while x == len(Ligne(y)-2):  #la ligne fini par n(d'où le -2)
+        while x == len(LenLigne(y-2)):  #la ligne fini par n(d'où le -2)
             i=0
             caracs = ''
             while iNbDeCarac:
